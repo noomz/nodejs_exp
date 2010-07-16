@@ -1,0 +1,89 @@
+<html>
+<head>
+<style type="text/css">
+  body { width: 100%; margin: 0; border: 0; }
+  #chat-box { width: 100% }
+  #chat-log {
+    position: fixed;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    height: 80%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: #333;
+    color: #FFF;
+    overflow: auto;
+  }
+  #chat-input {
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    margin: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: #DDD
+  }
+  
+  #chat-log-list {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .user {
+    float: left;
+    clear: left;
+    margin: 0px;
+    padding-left: 5px;
+    font-weight: bolder;
+    color: #DDD;
+  }
+  
+  .user:after {
+    content: ':';
+  }
+  
+  .message {
+    float: left;
+    padding-left: 5px;
+    width: 600px;
+  }
+  .announcement {
+    float: left;
+    padding-left: 5px;
+    width: 100%;
+    background-color: cyan;
+  }
+</style>
+
+<script src="/client/socket.io.js"></script>
+<script>
+    io.setPath('/client/');
+</script>
+
+</head>
+<body onload="initSocket()">
+<!-- Chat box here -->
+<div id="chat-box">
+  <!-- Display chat message -->
+  <div id="chat-log">
+    <ul id="chat-log-list">
+      <li>
+        <span class="user">Username</span>
+        <span class="message">Messagegggggg</span>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Display message input box -->
+  <form id="chat-input">
+    <input type="text" name="input_message" id="input_message">
+  </form>
+</div>
+<!-- /End Chat box -->
+<script src="nodechat.js"></script>
+</body>
+</html>
